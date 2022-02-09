@@ -5,8 +5,10 @@ console.log(galleryItems);
 
 const galleryContainerRef = document.querySelector('.gallery');
 // console.log(galleryContainerRef)
+galleryContainerRef.insertAdjacentHTML('beforeend', renderGallery(galleryItems));
 
-renderGallery(galleryItems);
+
+
 
 function renderGallery(arrayOfGallery) {
     
@@ -25,5 +27,6 @@ function renderGallery(arrayOfGallery) {
         `)
         .join(''); 
     
-    galleryContainerRef.insertAdjacentHTML('beforeend', markup)
-}
+    return markup;
+};
+
