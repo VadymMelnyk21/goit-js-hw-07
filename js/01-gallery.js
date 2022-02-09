@@ -29,3 +29,15 @@ function renderGallery(arrayOfGallery) {
     return markup;
 };
 
+function openImage(event) {
+    event.preventDefault();
+
+    if (event.target.nodeName !== 'IMG') {
+        return;
+    }
+
+    const instance = basicLightbox.create(`
+            <img src="${event.target.dataset.source}" />
+        `)
+    instance.show()
+};
