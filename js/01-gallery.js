@@ -4,10 +4,9 @@ import { galleryItems } from './gallery-items.js';
 console.log(galleryItems);
 
 const galleryContainerRef = document.querySelector('.gallery');
-// console.log(galleryContainerRef)
+
 galleryContainerRef.insertAdjacentHTML('beforeend', renderGallery(galleryItems));
-
-
+galleryContainerRef.addEventListener('click', openImage);
 
 
 function renderGallery(arrayOfGallery) {
