@@ -32,12 +32,36 @@ function renderGallery(arrayOfGallery) {
 function openImage(event) {
     event.preventDefault();
 
+
     if (event.target.nodeName !== 'IMG') {
         return;
     }
 
     const instance = basicLightbox.create(`
             <img src="${event.target.dataset.source}" />
-        `)
+        `,
+
+// close escape start
+        {
+            onShow: (instance) => {
+                window.addEventListener('keydown', clickESC);
+            },
+                
+            onClose: (instance) => {
+                window.removeEventListener('keydown', clickESC);
+            },
+        },
+    );
+
+    function clickESC(event) { 
+        if (event.code === 'Escape') {
+            instance.close();
+        };
+    };
+// close escape finish
+    
     instance.show()
 };
+
+
+
