@@ -12,13 +12,13 @@ function renderGallery(arrayOfGallery) {
     
     const markup = arrayOfGallery
         .map(({ preview, original, description }) => `
-            <li>
                 <a class="gallery__item" href="${original}">
-                    <img class="gallery__image" src="${preview}" alt="${description}" />
-                </a>
-            </li>      
+                    <img class="gallery__image" src="${preview}" alt="${description}"  />
+                </a>   
         `)
         .join(''); 
     
     return markup;
 };
+
+const lightbox = new SimpleLightbox('.gallery a', { /* options */ });
