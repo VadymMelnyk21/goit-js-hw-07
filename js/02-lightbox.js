@@ -21,4 +21,8 @@ function renderGallery(arrayOfGallery) {
     return markup;
 };
 
-const lightbox = new SimpleLightbox('.gallery a', { /* options */ });
+const lightbox = new SimpleLightbox('.gallery a', { 
+    captions: true,
+    captionsData: 'alt',
+    captionDelay: 250,
+ });
